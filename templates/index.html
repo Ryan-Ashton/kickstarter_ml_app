@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>My landing page</title>
+  <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- We need this line below for responsiveness! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="container my-6">
+
+
+    <div class="jumbotron">
+      <h2 class="display-6">Machine Learning App</h2>
+      <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+      <hr class="my-4">
+      <p>For more information contact Ryan Ashton.</p>
+      <a class="btn btn-dark btn-sm" href="#" role="button">Contact</a>
+    </div>
+
+
+
+    <!-- code a "How it works" section -->
+
+    <div class="hero-image">
+      <div class="hero-text">
+        <h1>TEST</h1>
+        <p>ipsum dolor sit amet,
+          consectetur adipisicing elit.
+          Illum culpa consequuntur magnam suscipit dolor impedit aperiam tempora
+          nulla earum consequatur eius corporis autem, placeat doloremque
+          repellat sequi laborum pariatur. Ipsam.</p>
+
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <form name="calculate" action="{{ url_for('predict')}}" method="POST">
+        <h4><strong>Inputs for Prediction</strong></h4>
+        <hr class="my-4">
+        <div class="input-container">
+          <i class="fas fa-calculator"></i>
+          <input class="input-field" type="text" placeholder="Name of Project" name="count_num_words">
+        </div>
+
+        <div class="input-container">
+          <i class="fas fa-calculator"></i>
+          <input class="input-field" type="text" placeholder="Goal Funding" name="goal">
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-lg btn-block">Calculate</button>
+      </form>
+    </div>
+
+
+
+
+    <!-- Display Results -->
+    <div class="jumbotron">
+      <div class="results" id="result">
+        {% if prediction == 1%}
+        <h4 style="color:rgb(2, 76, 53);text-align:justify;">Your Kickstarter Project could get funded!</h4>
+        {% elif prediction == 0%}
+        <h4 style="color:rgb(230, 9, 9);text-align:justify;">You may need to work on your pitch more. </h4>
+        {% endif %}
+      </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
